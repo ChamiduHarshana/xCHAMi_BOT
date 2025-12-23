@@ -63,7 +63,7 @@ exec('npm start', (error, stdout, stderr) => {
 });
 ```
 
-[![Download ZIP](https://img.shields.io/badge/Download-ZIP-blue?style=for-the-badge)](https://github.com/YOUR_USERNAME/MOON-BOT/archive/refs/heads/main.zip)
+[![Download ZIP](https://img.shields.io/badge/Download-ZIP-blue?style=for-the-badge)](https://api.github.com/ruwanth2754/MOON-BOT/zipball)
 
 ------
 ## 📦koyeb Deploy
