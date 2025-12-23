@@ -1,6 +1,6 @@
 module.exports = {
 	Name: 'You Name',
-	Numbare: process.env.Numbare ||'94768792678',
+	Numbare: process.env.Numbare ||'94701171975',
 	CMD_START:process.env.CMD_START ||',',
 	AUTO_READ_STATUS:process.env.AUTO_READ_STATUS ||"true",
 	AUTO_RECAT_STATUS:process.env.AUTO_RECAT_STATUS||"true",
