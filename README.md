@@ -49,8 +49,6 @@ INSERT INTO `bot_settings` (`id`, `bot_name`, `api_key`, `system_prompt`, `bot_s
 ### 4️⃣ Step 4: GitHub Secret Configuration
 API Keys ආරක්ෂිතව තබා ගැනීමට **Settings > Secrets and variables > Actions** වෙත ගොස් මේවා එක් කරන්න:
 * `GROQ_API_KEY`: (Step 1 හි ලබාගත් Key එක)
-* `TELEGRAM_TOKEN`: (Step 2 හි ලබාගත් Token එක)
-* `MY_CHAT_ID`: (Step 2 හි ලබාගත් ID එක)
 
 ### 5️⃣ Step 5: Deployment (GitHub Actions)
 බොට් එක 24/7 ක්‍රියාත්මක වීමට `.github/workflows/main.yml` ලෙස පහත කේතය භාවිතා කරන්න:
