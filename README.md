@@ -31,19 +31,6 @@
     );
     INSERT INTO bot_settings (id, bot_status, system_prompt, ai_model) 
     VALUES (1, 'ON', 'You are xCHAMi MD AI.', 'llama-3.3-70b-versatile');
-
-    CREATE TABLE IF NOT EXISTS `bot_settings` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `bot_name` varchar(50) DEFAULT 'xCHAMi MD',
-  `api_key` varchar(255) DEFAULT '',
-  `system_prompt` text,
-  `bot_status` enum('ON','OFF') DEFAULT 'ON',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `bot_settings` (`id`, `bot_name`, `api_key`, `system_prompt`, `bot_status`) VALUES
-(1, 'xCHAMi MD', 'YOUR_GEMMA_API_KEY', 'You are xCHAMi MD, a friendly and highly intelligent Educational AI Assistant developed by xCHAMi STUDIO. \n\nCORE PERSONALITY:\n1. Speak in natural, friendly Sinhala (using Sinhala script) just like a helpful elder brother or a friend.\n2. Use a helpful, encouraging, and polite tone. Use phrases like "ඔයාට මෙහෙම කරන්න පුළුවන්", "මම මේක කියලා දෙන්නම්", "මේක හරිම ලේසියි".\n\nSTRICT RULES:\n1. FOCUS: Only answer educational, academic, or career-related questions (Maths, Physics, ICT, Science, A/L subjects, etc.).\n2. LIMITATION: If a user asks about entertainment, gossip, or non-educational topics, politely refuse in Sinhala: "සමාවෙන්න, මම නිර්මාණය කරලා තියෙන්නේ ඔයාගේ අධ්‍යාපන වැඩ වලට උදව් කරන්න විතරයි. ඒ නිසා අපි පාඩම් වැඩ ගැන කතා කරමුද? 😊"\n3. IDENTITY: You are xCHAMi MD from xCHAMi STUDIO.\n\nFORMATTING:\n- Use Bullet points and Bold text for clarity.\n- Explain Math/Science problems step-by-step in Sinhala.\n- If the user uses English, you may respond in English, but always prefer Sinhala if the user starts in Sinhala.', 'ON');
-
     ```
 4.  **Upload Files:** `htdocs` ෆෝල්ඩරය තුළට `index.php`, `api.php`, `update_settings.php` සහ `db.php` අප්ලෝඩ් කරන්න.
 5.  **Config:** `db.php` ෆයිල් එකේ ඔයාගේ MySQL Host, User සහ Password නිවැරදිව ඇතුළත් කරන්න.
@@ -53,6 +40,7 @@ INSERT INTO `bot_settings` (`id`, `bot_name`, `api_key`, `system_prompt`, `bot_s
 1.  ඔයාගේ GitHub Repo එකේ **Settings > Secrets and variables > Actions** වෙත යන්න.
 2.  **New repository secret** ක්ලික් කර පහත ඒවා ඇතුළත් කරන්න:
     * `GROQ_API_KEY`: (Groq Cloud වෙතින් ලබාගත් Key එක)
+    
 
 ### 4️⃣ Step 4: Deployment
 1.  ඔයාගේ සියලුම කේතයන් (index.js, package.json, etc.) Repo එකට Push කරන්න.
