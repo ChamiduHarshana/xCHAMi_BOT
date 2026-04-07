@@ -1,0 +1,20 @@
+{
+  "name": "xchami-md-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp AI Bot powered by Groq and Baileys",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "latest",
+    "groq-sdk": "latest",
+    "node-telegram-bot-api": "latest",
+    "qrcode": "latest",
+    "axios": "latest",
+    "pino": "latest",
+    "link-preview-js": "latest"
+  },
+  "author": "xCHAMi STUDIO",
+  "license": "ISC"
+}
