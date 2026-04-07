@@ -76,6 +76,10 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
  ```
 Demo Site :   [Clicke](https://xchamiwpbot.free.nf/index.php?success=1) 
+
+[![Fork this guide](https://img.shields.io/badge/Fork-This%20Project-007AFF?style=for-the-badge&logo=github)](ChamiduHarshana/xCHAMi_BOT)
+
+
 ---
 
 ## 🎨 iOS Style Command Center
