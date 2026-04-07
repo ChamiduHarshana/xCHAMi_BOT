@@ -40,8 +40,6 @@
 1.  ඔයාගේ GitHub Repo එකේ **Settings > Secrets and variables > Actions** වෙත යන්න.
 2.  **New repository secret** ක්ලික් කර පහත ඒවා ඇතුළත් කරන්න:
     * `GROQ_API_KEY`: (Groq Cloud වෙතින් ලබාගත් Key එක)
-    * `TELEGRAM_TOKEN`: (Step 1 හි ලබාගත් Token එක)
-    * `MY_CHAT_ID`: (Step 1 හි ලබාගත් ID එක)
 
 ### 4️⃣ Step 4: Deployment
 1.  ඔයාගේ සියලුම කේතයන් (index.js, package.json, etc.) Repo එකට Push කරන්න.
