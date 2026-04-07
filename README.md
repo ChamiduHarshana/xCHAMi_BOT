@@ -26,7 +26,8 @@
 1.  [InfinityFree](https://www.infinityfree.com/) හි ගිණුමක් සාදා අලුත් MySQL Database එකක් සාදන්න.
 2.  **phpMyAdmin** විවෘත කර පහත SQL කේතය Run කරන්න:
 
-``` CREATE TABLE IF NOT EXISTS `bot_settings` (
+```sql
+CREATE TABLE IF NOT EXISTS `bot_settings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `bot_name` varchar(50) DEFAULT 'xCHAMi MD',
   `api_key` varchar(255) DEFAULT '',
@@ -41,7 +42,7 @@ INSERT INTO `bot_settings` (`id`, `bot_name`, `api_key`, `system_prompt`, `bot_s
 (1, 'xCHAMi MD', 'YOUR_GROQ_API_KEY', 
 'You are xCHAMi MD, a friendly and highly intelligent Educational AI Assistant developed by xCHAMi STUDIO...', 
 'ON', 'llama-3.3-70b-versatile', 0);
-
+```
 
 3.  `htdocs` තුළට `index.php`, `api.php`, `update_settings.php` සහ `db.php` අප්ලෝඩ් කර `db.php` සැකසුම් නිවැරදි කරන්න.
 
@@ -54,7 +55,8 @@ API Keys ආරක්ෂිතව තබා ගැනීමට **Settings > Secr
 ### 5️⃣ Step 5: Deployment (GitHub Actions)
 බොට් එක 24/7 ක්‍රියාත්මක වීමට `.github/workflows/main.yml` ලෙස පහත කේතය භාවිතා කරන්න:
 
-[ name: xCHAMi MD 24/7 Advance System
+```yml
+ name: xCHAMi MD 24/7 Advance System
 on:
   push:
     branches: [ main ]
@@ -74,7 +76,7 @@ jobs:
       - run: timeout 340m node index.js || true
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
- ]
+ ```
 
 ---
 
