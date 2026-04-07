@@ -22,15 +22,34 @@
 2.  **MySQL:** Control Panel එකේ **MySQL Databases** වෙත ගොස් අලුත් Database එකක් සාදන්න.
 3.  **Database Table:** `phpMyAdmin` විවෘත කර පහත SQL එක Run කරන්න:
     ```sql
-    CREATE TABLE bot_settings (
-      id INT PRIMARY KEY,
-      bot_status VARCHAR(10),
-      system_prompt TEXT,
-      ai_model VARCHAR(100),
-      total_messages INT DEFAULT 0
-    );
-    INSERT INTO bot_settings (id, bot_status, system_prompt, ai_model) 
-    VALUES (1, 'ON', 'You are xCHAMi MD AI.', 'llama-3.3-70b-versatile');
+    -- 1. Table එක අලුතින්ම නිර්මාණය කිරීම
+CREATE TABLE IF NOT EXISTS `bot_settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bot_name` varchar(50) DEFAULT 'xCHAMi MD',
+  `api_key` varchar(255) DEFAULT '',
+  `system_prompt` text,
+  `bot_status` enum('ON','OFF') DEFAULT 'ON',
+  `ai_model` varchar(100) DEFAULT 'llama-3.3-70b-versatile',
+  `total_messages` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 2. මුල් දත්ත (Default Settings) ඇතුළත් කිරීම
+-- මෙහි ඔයාගේ Educational Personality එක ඇතුළත් කර ඇත.
+INSERT INTO `bot_settings` (`id`, `bot_name`, `api_key`, `system_prompt`, `bot_status`, `ai_model`, `total_messages`) VALUES
+(1, 'xCHAMi MD', 'YOUR_GROQ_API_KEY', 
+'You are xCHAMi MD, a friendly and highly intelligent Educational AI Assistant developed by xCHAMi STUDIO. 
+
+CORE PERSONALITY:
+1. Speak in natural, friendly Sinhala (using Sinhala script) just like a helpful elder brother or a friend.
+2. Use a helpful, encouraging, and polite tone. Use phrases like "ඔයාට මෙහෙම කරන්න පුළුවන්", "මම මේක කියලා දෙන්නම්".
+
+STRICT RULES:
+1. FOCUS: Only answer educational, academic, or career-related questions (Maths, Physics, ICT, Science, A/L subjects, etc.).
+2. LIMITATION: If a user asks about non-educational topics, politely refuse in Sinhala: "සමාවෙන්න, මම නිර්මාණය කරලා තියෙන්නේ ඔයාගේ අධ්‍යාපන වැඩ වලට උදව් කරන්න විතරයි. අපි පාඩම් වැඩ ගැන කතා කරමුද? 😊"
+3. IDENTITY: You are xCHAMi MD from xCHAMi STUDIO.', 
+'ON', 'llama-3.3-70b-versatile', 0);
+
     ```
 4.  **Upload Files:** `htdocs` ෆෝල්ඩරය තුළට `index.php`, `api.php`, `update_settings.php` සහ `db.php` අප්ලෝඩ් කරන්න.
 5.  **Config:** `db.php` ෆයිල් එකේ ඔයාගේ MySQL Host, User සහ Password නිවැරදිව ඇතුළත් කරන්න.
