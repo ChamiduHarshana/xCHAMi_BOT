@@ -1,49 +1,64 @@
-# 🤖 xCHAMi MD V3.5 - Elite AI 
-> Advanced WhatsApp AI Bot with iOS Style Dashboard & Remote Control.
+# 🤖 xCHAMi MD V3.5 - Elite Edition
+> Next-Gen WhatsApp AI Bot powered by Groq & Baileys with a Professional Web Dashboard.
 
 <p align="center">
   <img src="https://img.shields.io/github/stars/xCHAMiSTUDIO/xCHAMi-MD?style=for-the-badge&color=007AFF&logo=github" alt="Stars">
   <img src="https://img.shields.io/github/forks/xCHAMiSTUDIO/xCHAMi-MD?style=for-the-badge&color=007AFF&logo=github-sponsors" alt="Forks">
+  <img src="https://img.shields.io/badge/Node.js-20+-007AFF?style=for-the-badge&logo=node.js" alt="Node Version">
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" alt="Status">
 </p>
 
 ---
 
-## 🚀 Deployment Guide (පියවරෙන් පියවර)
-
-### 🔹 01. Telegram Setup (Remote Control)
-1. **Bot Token:** [@BotFather](https://t.me/BotFather) වෙත ගොස් `/newbot` ලෙස ලබා දෙන්න. ලැබෙන `API Token` එක සේව් කරගන්න.
-2. **Chat ID:** [@userinfobot](https://t.me/userinfobot) වෙත මැසේජ් එකක් දමා ඔයාගේ `ID` එක (උදා: 5874012720) ලබාගන්න.
-
-### 🔹 02. InfinityFree Setup (Web Dashboard)
-1. [InfinityFree](https://www.infinityfree.com/) හි ගිණුමක් සාදා **MySQL Databases** වෙත ගොස් අලුත් DB එකක් සාදන්න.
-2. **phpMyAdmin** විවෘත කර ඉහත ලබා දී ඇති `SQL Code` එක Run කරන්න.
-3. **File Manager** (htdocs) තුළට `index.php`, `api.php`, `update_settings.php`, සහ `db.php` upload කරන්න.
-4. **db.php** එකේ Host, User, Password නිවැරදිව ලබා දෙන්න.
-
-### 🔹 03. GitHub Secret Configuration
-GitHub Repo එකේ **Settings > Secrets and variables > Actions** වෙත ගොස් මේවා ඇතුළත් කරන්න:
-* `GROQ_API_KEY`: Groq Cloud වෙතින් ලබාගත් API Key එක.
+## 💎 Premium Features
+* **⚡ Ultra-Fast Responses:** Powered by Groq Cloud (Llama 3.3).
+* **📱 iOS Style Dashboard:** Professional PHP web panel to control your bot.
+* **🎭 Multi-Personality:** Change bot behavior via the web or Telegram.
+* **📊 Live Monitoring:** Track total messages and system uptime in real-time.
+* **🔒 Secure:** API keys are managed via GitHub Secrets for maximum safety.
 
 ---
 
-## 💎 Features
-* 🔵 **iOS 17 Design:** පිරිසිදු සහ ආකර්ෂණීය නිල් පැහැති තීම් එක.
-* 🤖 **AI Model Switcher:** Llama 3.3 වැනි අලුත්ම මාදිලි භාවිතා කළ හැකියි.
-* 📊 **Message Analytics:** දිනපතා ලැබෙන මැසේජ් ප්‍රමාණය ගණනය කිරීම.
-* 🎭 **System Prompt Control:** Dashboard එක හරහා බොට්ගේ පෞරුෂය වෙනස් කිරීම.
+## 🛠️ Setup & Deployment
 
----
+### 1. Web Dashboard (PHP & MySQL)
+ඔයාගේ Web Panel එක (InfinityFree හෝ වෙනත්) Host කරන ආකාරය:
+1.  `db.php` එකේ ඔයාගේ Database තොරතුරු ඇතුළත් කරන්න.
+2.  `index.php`, `api.php`, `update_settings.php` යන ෆයිල් සියල්ල upload කරන්න.
+3.  Database එකේ `bot_settings` නමින් table එකක් සාදා record එකක් ඇතුළත් කරන්න.
 
-## 👨‍💻 Developer Information
-**xCHAMi STUDIO | Innovative AI Solutions**
+### 2. GitHub Actions Deployment (YAML)
+බොට්ව 24/7 run කිරීමට `.github/workflows/main.yml` ෆයිල් එකක් සාදා පහත දේ එක් කරන්න:
 
-* **Developer:** Chamidu Harshana
-* **Status:** Grade 12 Student (Mathematics Stream)
-* **Education:** Sripalee College, Horana
-* **Technologies:** Node.js, PHP, MySQL, JavaScript
-* **Socials:** [Telegram](https://t.me/xCHAMi_STUDIO) | [YouTube](https://youtube.com/@xCHAMi_STUDIO)
+```yaml
+name: xCHAMi MD 24/7 Advance System
 
-> "තාක්ෂණය සමඟින් අනාගතය දිනමු." - xCHAMi STUDIO
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 */5 * * *' # පැය 5 කට වරක් auto restart වේ
+  workflow_dispatch:
 
----
-Copyright © 2026 xCHAMi STUDIO. All rights reserved.
+jobs:
+  xchami-bot-job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350 
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run xCHAMi MD Bot
+        run: timeout 340m node index.js || true
+        env:
+          NODE_ENV: production
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }} # GitHub Secret එක මෙහිදී සම්බන්ධ කරයි
