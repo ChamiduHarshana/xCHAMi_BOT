@@ -5,6 +5,9 @@
   <img src="https://img.shields.io/github/stars/xCHAMiSTUDIO/xCHAMi-MD?style=for-the-badge&color=007AFF&logo=github" alt="Stars">
   <img src="https://img.shields.io/github/forks/xCHAMiSTUDIO/xCHAMi-MD?style=for-the-badge&color=007AFF&logo=github-sponsors" alt="Forks">
   <img src="https://img.shields.io/badge/Node.js-20+-007AFF?style=for-the-badge&logo=node.js" alt="Node Version">
+
+[![Fork this guide](https://img.shields.io/badge/Fork-This%20Project-007AFF?style=for-the-badge&logo=github)](https://github.com/ChamiduHarshana/xCHAMi_BOT/fork)
+
 </p>
 
 ---
@@ -76,9 +79,6 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
  ```
 Demo Site :   [Clicke](https://xchamiwpbot.free.nf/index.php?success=1) 
-
-[![Fork this guide](https://img.shields.io/badge/Fork-This%20Project-007AFF?style=for-the-badge&logo=github)](ChamiduHarshana/xCHAMi_BOT)
-
 
 ---
 
