@@ -1,55 +1,81 @@
-# xCHAMi_BOT
 # 🤖 xCHAMi MD V3.5 - Elite Edition
-> Next-Gen WhatsApp AI Bot powered by Groq & Baileys with a Professional Web Dashboard.
+> Next-Generation WhatsApp AI Bot with iOS Style Web Dashboard.
 
 <p align="center">
   <img src="https://img.shields.io/github/stars/xCHAMiSTUDIO/xCHAMi-MD?style=for-the-badge&color=007AFF&logo=github" alt="Stars">
   <img src="https://img.shields.io/github/forks/xCHAMiSTUDIO/xCHAMi-MD?style=for-the-badge&color=007AFF&logo=github-sponsors" alt="Forks">
   <img src="https://img.shields.io/badge/Node.js-20+-007AFF?style=for-the-badge&logo=node.js" alt="Node Version">
-  <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" alt="Status">
 </p>
 
 ---
 
-## 💎 Premium Features
-* **⚡ Ultra-Fast Responses:** Powered by Groq Cloud (Llama 3.3).
-* **📱 iOS Style Dashboard:** Professional PHP web panel to control your bot.
-* **🎭 Multi-Personality:** Change bot behavior via the web or Telegram.
-* **📊 Live Monitoring:** Track total messages and system uptime in real-time.
-* **🔒 Secure:** API keys are managed via GitHub Secrets for maximum safety.
+## 🚀 Full Setup Guide (Step-by-Step)
+
+### 1️⃣ Step 1: Get Telegram Credentials
+බොට්ව Remote Control කිරීමට අවශ්‍ය තොරතුරු ලබාගන්න:
+* **Bot Token:** [@BotFather](https://t.me/BotFather) වෙත ගොස් අලුත් බොට් කෙනෙක් සාදා `API Token` එක ලබාගන්න.
+* **Chat ID:** [@userinfobot](https://t.me/userinfobot) වෙත මැසේජ් එකක් දමා ඔයාගේ `Unique Chat ID` එක ලබාගන්න.
+
+### 2️⃣ Step 2: InfinityFree Web Dashboard Setup
+ඔයාගේ Web Panel එක ලෝකයට විවෘත කරන්න:
+1.  **Account:** [InfinityFree](https://www.infinityfree.com/) හි ගිණුමක් සාදා අලුත් Hosting Account එකක් සාදන්න.
+2.  **MySQL:** Control Panel එකේ **MySQL Databases** වෙත ගොස් අලුත් Database එකක් සාදන්න.
+3.  **Database Table:** `phpMyAdmin` විවෘත කර පහත SQL එක Run කරන්න:
+    ```sql
+    CREATE TABLE bot_settings (
+      id INT PRIMARY KEY,
+      bot_status VARCHAR(10),
+      system_prompt TEXT,
+      ai_model VARCHAR(100),
+      total_messages INT DEFAULT 0
+    );
+    INSERT INTO bot_settings (id, bot_status, system_prompt, ai_model) 
+    VALUES (1, 'ON', 'You are xCHAMi MD AI.', 'llama-3.3-70b-versatile');
+    ```
+4.  **Upload Files:** `htdocs` ෆෝල්ඩරය තුළට `index.php`, `api.php`, `update_settings.php` සහ `db.php` අප්ලෝඩ් කරන්න.
+5.  **Config:** `db.php` ෆයිල් එකේ ඔයාගේ MySQL Host, User සහ Password නිවැරදිව ඇතුළත් කරන්න.
+
+### 3️⃣ Step 3: GitHub Secret Configuration
+ඔයාගේ API Keys ආරක්ෂිතව තබා ගැනීමට:
+1.  ඔයාගේ GitHub Repo එකේ **Settings > Secrets and variables > Actions** වෙත යන්න.
+2.  **New repository secret** ක්ලික් කර පහත ඒවා ඇතුළත් කරන්න:
+    * `GROQ_API_KEY`: (Groq Cloud වෙතින් ලබාගත් Key එක)
+    * `TELEGRAM_TOKEN`: (Step 1 හි ලබාගත් Token එක)
+    * `MY_CHAT_ID`: (Step 1 හි ලබාගත් ID එක)
+
+### 4️⃣ Step 4: Deployment
+1.  ඔයාගේ සියලුම කේතයන් (index.js, package.json, etc.) Repo එකට Push කරන්න.
+2.  GitHub Actions මගින් බොට් ස්වයංක්‍රීයව පණගැන්වෙනු ඇත.
+3.  ටෙලිග්‍රෑම් එකට ලැබෙන **QR Code** එක Scan කර බොට්ව WhatsApp සමඟ සම්බන්ධ කරන්න.
 
 ---
 
-## 🛠️ Setup & Deployment
+## 🎨 iOS Style Command Center
+ඔයාගේ Dashboard එක හරහා මේ දේවල් කළ හැකියි:
+* ✅ බොට්ව ON/OFF කිරීම.
+* ✅ AI Models මාරු කිරීම (Llama 3.3, etc.).
+* ✅ System Prompt එක එසැණින් වෙනස් කිරීම.
+* ✅ දෛනික මැසේජ් ප්‍රමාණය නිරීක්ෂණය කිරීම.
 
-### 1. Web Dashboard (PHP & MySQL)
-ඔයාගේ Web Panel එක (InfinityFree හෝ වෙනත්) Host කරන ආකාරය:
-1.  `db.php` එකේ ඔයාගේ Database තොරතුරු ඇතුළත් කරන්න.
-2.  `index.php`, `api.php`, `update_settings.php` යන ෆයිල් සියල්ල upload කරන්න.
-3.  Database එකේ `bot_settings` නමින් table එකක් සාදා record එකක් ඇතුළත් කරන්න.
+---
 
-### 2. GitHub Actions Deployment (YAML)
-බොට්ව 24/7 run කිරීමට `.github/workflows/main.yml` ෆයිල් එකක් සාදා පහත දේ එක් කරන්න:
+## 🛠️ Tech Stack
+* **Backend:** Node.js, Baileys
+* **AI Engine:** Groq Cloud (Llama 3.3)
+* **Frontend:** PHP, Tailwind CSS (iOS Theme)
+* **Database:** MySQL
 
-```yaml
-name: xCHAMi MD Bot
-on:
-  push:
-    branches: [ main ]
-  schedule:
-    - cron: '0 */6 * * *'
+---
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-      - run: npm install
-      - run: node index.js
-        env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+## 👨‍💻 Developer Information
+**Developed with ❤️ by xCHAMi STUDIO**
 
+* **Lead Developer:** Chamidu Harshana
+* **Brand:** xCHAMi STUDIO
+* **Project:** xCHAMi MD V3.5
+* **Contact:** [Telegram](https://t.me/xCHAMi_STUDIO)
+
+> "Innovation starts here." - xCHAMi STUDIO
+
+---
+Copyright © 2026 xCHAMi STUDIO. All rights reserved.
