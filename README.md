@@ -23,8 +23,6 @@
 ### 🔹 03. GitHub Secret Configuration
 GitHub Repo එකේ **Settings > Secrets and variables > Actions** වෙත ගොස් මේවා ඇතුළත් කරන්න:
 * `GROQ_API_KEY`: Groq Cloud වෙතින් ලබාගත් API Key එක.
-* `TELEGRAM_TOKEN`: Step 1 හි ලබාගත් Token එක.
-* `MY_CHAT_ID`: Step 1 හි ලබාගත් Chat ID එක.
 
 ---
 
